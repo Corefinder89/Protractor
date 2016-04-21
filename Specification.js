@@ -2,7 +2,7 @@
 describe('Check URL of the page', function() {
 	browser.ignoreSynchronization = true;
 	it('Should redirect to the proper URL',function(){
-		console.log('Step 1: --Checked whether the URL has been properly redirected--');
+		console.log('executed -- check url redirection');
 		 browser.get('https://aries-dev.herokuapp.com/');
 		 expect(browser.getCurrentUrl()).toEqual('https://aries-dev.herokuapp.com/index.html#/');
 	});
@@ -12,21 +12,30 @@ describe('Check URL of the page', function() {
 describe('Check the title of the page', function(){
 	it('Should have a title', function () {
        browser.ignoreSynchronization = true;
-       console.log('Step 2: --Checked proper title is appearing in the page or not--');
+       console.log('executed -- checked title of the page');
        browser.get('https://aries-dev.herokuapp.com/index.html#/');
   	   expect(browser.getTitle()).toEqual('WellKept');
   });
 });
 
-//Functionality-3: Check whether the SignIn link is appearing or not
+//Functionality-3: Check whether the SignIn link is present or not
 describe('Check for SignIn link', function(){
 	it('Should have the SignIn href attribute', function(){
 		browser.ignoreSynchronization = true;
-		console.log('Step-3: --Check whether sign in link is appearing--');
+		console.log('executed -- checked attribute sign in');
 		browser.get('https://aries-dev.herokuapp.com/index.html#/');
 		var sign_in = element(by.css('[ng-click="onSignIn()"]'))
 		expect(sign_in.isPresent()).toBeFalsy();
 	});
 });
 
-//Functionality-4: Check whether MyBookings link is appearing or not
+//Functionality-4: Check whether the MyBooking link is present or not
+describe('Check for MyBookings link', function(){
+	it('Should have the MyBooking href attribute', function(){
+		browser.ignoreSynchronization = true;
+		console.log('executed -- checked attribute mybooking');
+		browser.get('https://aries-dev.herokuapp.com/index.html#/');
+		var mybooking = element(by.xpath("//a[contains(text(),'MY BOOKINGS')]"));
+		expect(mybooking.isPresent()).toBeFalsy();
+	});
+});
