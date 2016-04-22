@@ -1,8 +1,9 @@
 describe('Home Page',function(){
 
+  browser.ignoreSynchronization = true;
+  browser.get('https://aries-dev.herokuapp.com/');
+  
   beforeEach(function(){
-     browser.ignoreSynchronization = true;
-     browser.get('https://aries-dev.herokuapp.com/');
      browser.sleep(5000);
   })
 
@@ -10,47 +11,37 @@ describe('Home Page',function(){
   it('Should redirect to the proper URL',function(){
     console.log('executed -- check url redirection');
     expect(browser.getCurrentUrl()).toEqual('https://aries-dev.herokuapp.com/index.html#/');
-    browser.sleep(5000);
   });
 
   //Functionality-2: Check whether the title of the page is appearing correct or not
    it('Should have a title', function () {
-       browser.ignoreSynchronization = true;
        console.log('executed -- checked title of the page');
        expect(browser.getTitle()).toEqual('WellKept');
-       browser.sleep(5000);
   });
 
   //Functionality-3: Check whether the SignIn link is present or not
   it('Should have the SignIn href attribute', function(){
-    browser.ignoreSynchronization = true;
     console.log('executed -- checked attribute sign in');
     var sign_in = element(by.css('[ng-click="onSignIn()"]'))
     expect(sign_in.isPresent()).toBe(true);
-    browser.sleep(5000);
   });
 
   //Functionality-4: Check whether the MyBooking link is present or not
   it('Should have the MyBooking href attribute', function(){
-    browser.ignoreSynchronization = true;
     console.log('executed -- checked attribute mybookings');
     var mybooking = element(by.xpath("//a[contains(text(),'MY BOOKINGS')]"));
     expect(mybooking.isPresent()).toBe(true);
-    browser.sleep(5000);
   });
 
   //Functionality-5: Check whether the Help link is present or not
   it('Should have the Help href attribute', function(){
-    browser.ignoreSynchronization = true;
     console.log('executed -- checked attribute help');
     var help = element(by.xpath("//a[contains(text(),'HELP')]"));
     expect(help.isPresent()).toBe(true);
-    browser.sleep(5000);
   });
 
-  //Functionality-6: Login
+  //Functionality-6: Validate Login
   it('Should Login the user', function(){
-    browser.ignoreSynchronization = true;
     console.log('executed -- Click on Sign In attribute');
     var locator_signin = element(by.css('[ng-click="onSignIn()"]'));
     browser.sleep(5000);
@@ -69,6 +60,15 @@ describe('Home Page',function(){
     browser.sleep(5000);
     expect(expect_email.isPresent()).toBe(true);
   });  
+
+  //Functionality-7: Validate MyProfile
+  it('Should redirect to the user profile page', function(){
+    console.log('executed -- Click on MyProfile');
+    var myprof = element(by.css('a[href="#/profile"]'))
+    browser.sleep(5000);
+    myprof.click();
+    browser.sleep(5000);
+  });
 
   //End execution
 });
