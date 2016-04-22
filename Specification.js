@@ -51,11 +51,24 @@ describe('Home Page',function(){
   //Functionality-6: Login
   it('Should Login the user', function(){
     browser.ignoreSynchronization = true;
-    console.log('executed -- Sign in the user');
+    console.log('executed -- Click on Sign In attribute');
     var locator_signin = element(by.css('[ng-click="onSignIn()"]'));
     browser.sleep(5000);
     locator_signin.click();
     browser.sleep(5000);
+    element(by.model('login.userName')).sendKeys('testautomation@mailinator.com');
+    console.log("executed -- Entered the username");
+    element(by.model('login.password')).sendKeys('123456');
+    console.log("executed -- Entered the password");
+    var locator_login = element(by.css('[ng-click="onLoginFn(); loginForm.submitted=true;"]'));
+    browser.sleep(5000);
+    locator_login.click();
+    console.log("executed -- Clicked on login");
+    browser.sleep(5000);
+    var expect_email = element(by.xpath("//a[contains(text(),'testautomation@mailinator.com')]"));
+    browser.sleep(5000);
+    expect(expect_email.isPresent()).toBe(true);
+    expect()
   });  
 
   //End execution
