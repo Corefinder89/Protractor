@@ -68,7 +68,6 @@ describe('Home Page',function(){
     var expect_email = element(by.xpath("//a[contains(text(),'testautomation@mailinator.com')]"));
     browser.sleep(5000);
     expect(expect_email.isPresent()).toBe(true);
-    expect()
   });  
 
   //End execution
