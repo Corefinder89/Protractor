@@ -11,6 +11,10 @@ exports.config={
 		browserName: 'chrome'
 	},
 
+	jasmineNodeOpts: {
+		defaultTimeoutInterval: 40000
+	},
+
 	beforeLaunch: function (){
     	return new Promise(function(resolve){
         	reporter.beforeLaunch(resolve);

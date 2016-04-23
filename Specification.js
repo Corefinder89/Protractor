@@ -56,17 +56,78 @@ describe('Home Page',function(){
     locator_login.click();
     console.log("executed -- Clicked on login");
     browser.sleep(5000);
-    var expect_email = element(by.xpath("//a[contains(text(),'testautomation@mailinator.com')]"));
+    var expect_email = element(by.xpath("//a[contains(text(),'Soumyajit Basu')]"));
     browser.sleep(5000);
     expect(expect_email.isPresent()).toBe(true);
   });  
 
   //Functionality-7: Validate MyProfile
-  it('Should redirect to the user profile page', function(){
-    console.log('executed -- Click on MyProfile');
-    var myprof = element(by.css('a[href="#/profile"]'))
+  // it('Should redirect to the user profile page', function(){
+  //   console.log('executed -- Click on MyProfile');
+  //   var myprof = element(by.css('a[href="#/profile"]'))
+  //   browser.sleep(5000);
+  //   myprof.click();
+  //   browser.sleep(5000);
+  //   var prof = element(by.css('h1')).getText()
+  //   expect(prof).toEqual('profile.');
+  // });
+
+  //Functionality-8: Make a business clean order
+  it('Business clean order', function(){
+    console.log('executed -- Click on Business Clean');
+    var locator_businessclean = element(by.css('[ng-click="onBusinessCleanSelect()"]'));
     browser.sleep(5000);
-    myprof.click();
+    locator_businessclean.click();
+    browser.sleep(5000);
+    console.log('executed -- Insert zip code');
+    var locator_zipcode1 = element(by.model('zipcode'));
+    locator_zipcode1.sendKeys('30004');
+    browser.sleep(2000);
+    console.log('executed -- Insert description');
+    var locator_description = element(by.model('businessCleaningDescription'));
+    locator_description.sendKeys('2 bedroom, hall and kitchen');
+    browser.sleep(2000);
+    console.log('executed -- Insert from time')
+    var locator_fromtime = element(by.model('fromTime'));
+    locator_fromtime.sendKeys('24/04/2016');
+    browser.sleep(2000);
+    console.log('executed -- Insert first name');
+    var locator_firstname = element(by.model('userDetails.firstName'));
+    locator_firstname.sendKeys('Soumyajit');
+    browser.sleep(2000);
+    console.log('executed -- Insert last name');
+    var locator_lastname = element(by.model('userDetails.lastName'));
+    locator_lastname.sendKeys('Basu');
+    browser.sleep(2000);
+    console.log('executed -- Insert email');
+    var locator_email = element(by.model('userDetails.email'));
+    locator_email.sendKeys('soumyajit.basu62@gmail.com');
+    browser.sleep(2000);
+    console.log('executed -- Insert mobile number');
+    var locator_mobile = element(by.model('userDetails.phone'));
+    locator_mobile.sendKeys('8390674410');
+    console.log('executed -- Insert street address');
+    var locator_streetaddress = element(by.model('userDetails.streetAddress'));
+    locator_streetaddress.sendKeys('Evoma Business Center, Whitefield');
+    browser.sleep(2000);
+    console.log('executed -- Insert Appartment');
+    var locator_appartment = element(by.model('userDetails.apartment'));
+    locator_appartment.sendKeys('McKinsey & Company');
+    browser.sleep(2000);
+    console.log('executed -- Insert city');
+    var locator_city = element(by.model('userDetails.city'));
+    locator_city.sendKeys('Bengaluru');
+    browser.sleep(2000);
+    console.log('executed -- Insert state');
+    var locator_state = element(by.model('userDetails.state'));
+    locator_state.sendKeys('Karnataka');
+    browser.sleep(2000);
+    console.log('executed -- Insert zip code');
+    locator_zipcode2 = element(by.model('userDetails.zipCode'));
+    locator_zipcode2.sendKeys('30004');
+    browser.sleep(2000);
+    var locator_submitbusinessclean = element(by.css('[ng-click = "submitBusinessCleanOrder()"]'));
+    locator_submitbusinessclean.click();
     browser.sleep(5000);
   });
 
