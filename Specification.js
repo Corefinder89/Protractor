@@ -129,6 +129,14 @@ describe('Home Page',function(){
     var locator_submitbusinessclean = element(by.css('[ng-click = "submitBusinessCleanOrder()"]'));
     locator_submitbusinessclean.click();
     browser.sleep(5000);
+    var locator_dashboard = element(by.css('[ng-click="gotoDashboard()"]'));
+    locator_dashboard.click();
+    browser.sleep(5000);
+    var locator_cancel = element(by.css('[ng-click="onCancelBooking({order: order})"]'));
+    locator_cancel.click();
+    browser.sleep(5000);
+    var locator_cancelbooking = element(by.css('[ng-click="$close({reason: reason, isCancelSeries: isCancelSeries})"]'));
+    locator_cancelbooking.click();
   });
 
   //End execution
