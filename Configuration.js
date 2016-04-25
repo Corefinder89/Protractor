@@ -7,6 +7,7 @@ exports.config={
 	framework:'jasmine2',
 
 	seleniumAddress:'http://localhost:4444/wd/hub',
+	//directConnect: true,
 
 	specs:['Specification.js'],
 
@@ -15,7 +16,8 @@ exports.config={
 	},
 
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 60000
+		defaultTimeoutInterval: 60000,
+		showColors: true
 	},
 
 	beforeLaunch: function (){
