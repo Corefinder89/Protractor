@@ -1,12 +1,15 @@
 var HtmlReporter = require('protractor-jasmine2-screenshot-reporter');
 var reporter = new HtmlReporter({
-baseDirectory: 'Screenshots'
+	baseDirectory: 'Screenshots'
 });
 
 exports.config={
 	framework:'jasmine2',
+
 	seleniumAddress:'http://localhost:4444/wd/hub',
+
 	specs:['Specification.js'],
+
 	capabilities:{
 		browserName: 'chrome'
 	},
@@ -29,5 +32,5 @@ exports.config={
 		return new Promise(function(resolve){
 			reporter.afterLaunch(resolve.bind(this, exitcode));
 		});
-	}
+	},
 }
